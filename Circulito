@@ -1,0 +1,59 @@
+from turtle import*
+from math import sqrt 
+#pantalla y tortuga
+
+pantalla=Screen()
+DIMX=400
+DIMY=200
+pantalla.setup(DIMX+25, DIMY+25)
+pantalla.screensize(DIMX, DIMY)
+
+tortuga=Turtle()
+
+#datos
+x = float(input('Dame la coordenada x de un punto.'))
+y = float(input('Dame la coordenada y de un punto.'))
+l = float(input('Dame la longitud del lado del cuadrado.'))
+
+#cuadrado
+tortuga.penup()
+tortuga.goto(-l/2, -l/2)
+tortuga.pendown()
+tortuga.pencolor('red')
+tortuga.goto(-l/2,l/2)
+tortuga.goto(l/2, l/2)
+tortuga.goto(l/2, -l/2)
+tortuga.goto(-l/2, -l/2)
+
+#círculo
+d = sqrt(l**2+l**2)
+r = d/2
+
+tortuga.pencolor('blue')
+tortuga.penup()
+tortuga.goto(0,-r)
+tortuga.pendown()
+tortuga.circle(r)
+
+#punto
+
+
+#Creación del punto
+
+tortuga.penup()
+tortuga.goto(x, y)
+
+dist = sqrt((x ** 2) + (y ** 2))
+
+if abs(x) <= l/2 and abs(y)<=l/2:
+    tortuga.pencolor("red")
+    tortuga.dot()
+else:
+        if dist < r:
+            tortuga.pencolor("blue")
+            tortuga.dot()
+        else:
+                tortuga.pencolor("green")
+                tortuga.dot()
+                
+pantalla.exitonclick()
